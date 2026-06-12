@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sattvi | Saflığın Kaynağına Dönüş</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      background-color: #fcf9f4;
+      color: #1c1c19;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    .hero-gradient {
+      background: linear-gradient(to bottom, rgba(252, 249, 244, 0) 0%, rgba(252, 249, 244, 0.4) 70%, rgba(252, 249, 244, 1) 100%);
+    }
+    .ambient-shadow {
+      box-shadow: 0 10px 40px -15px rgba(71, 91, 76, 0.05);
+    }
+    .hover-ambient-shadow:hover {
+      box-shadow: 0 20px 50px -10px rgba(71, 91, 76, 0.08);
+      transform: translateY(-4px);
+    }
+    .pill-button {
+      border-radius: 9999px;
+      transition: all 0.3s ease;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-high": "#eae8e3",
+            "primary-fixed-dim": "#b5ccb9",
+            "surface-bright": "#fcf9f4",
+            "on-tertiary-container": "#f5f3ee",
+            "surface-tint": "#4f6354",
+            "inverse-surface": "#31302d",
+            "inverse-on-surface": "#f3f0eb",
+            "on-secondary-fixed": "#380d03",
+            "on-error": "#ffffff",
+            "error": "#ba1a1a",
+            "surface-dim": "#dcdad5",
+            "secondary-container": "#fdad98",
+            "on-tertiary-fixed": "#1b1c19",
+            "on-surface-variant": "#434843",
+            "tertiary-container": "#6f6f6b",
+            "inverse-primary": "#b5ccb9",
+            "on-primary-fixed": "#0c1f13",
+            "surface-container-highest": "#e5e2dd",
+            "outline": "#737873",
+            "on-primary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "secondary": "#8b4e3d",
+            "on-primary-fixed-variant": "#374b3d",
+            "on-primary-container": "#e2f9e5",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed-variant": "#474744",
+            "tertiary": "#575753",
+            "on-secondary-fixed-variant": "#6f3728",
+            "tertiary-fixed": "#e4e2dd",
+            "primary-container": "#5f7464",
+            "primary": "#475b4c",
+            "on-secondary-container": "#783f2f",
+            "background": "#fcf9f4",
+            "surface-container": "#f0ede9",
+            "surface-variant": "#e5e2dd",
+            "outline-variant": "#c3c8c1",
+            "on-background": "#1c1c19",
+            "surface-container-low": "#f6f3ee",
+            "secondary-fixed": "#ffdbd1",
+            "primary-fixed": "#d1e8d5",
+            "tertiary-fixed-dim": "#c8c6c2",
+            "surface": "#fcf9f4",
+            "on-surface": "#1c1c19",
+            "error-container": "#ffdad6",
+            "secondary-fixed-dim": "#ffb5a1",
+            "on-error-container": "#93000a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "unit": "8px",
+            "margin-desktop": "64px",
+            "section-gap": "120px",
+            "margin-mobile": "20px",
+            "gutter": "24px",
+            "container-max": "1280px"
+          },
+          "fontFamily": {
+            "display-lg": ["EB Garamond", "serif"],
+            "headline-md": ["EB Garamond", "serif"],
+            "headline-sm": ["EB Garamond", "serif"],
+            "body-lg": ["Manrope", "sans-serif"],
+            "body-md": ["Manrope", "sans-serif"],
+            "label-md": ["Manrope", "sans-serif"],
+            "label-sm": ["Manrope", "sans-serif"]
+          },
+          "fontSize": {
+            "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+            "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+            "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background">
+<!-- TopNavBar -->
+<header class="fixed w-full top-0 z-50 bg-surface-bright/80 backdrop-blur-md">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop h-24">
+<div class="font-display-lg text-display-lg text-primary tracking-tight">Sattvi</div>
+<nav class="hidden md:flex items-center space-x-10">
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary pb-1" href="#">Shop</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Our Story</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Sustainability</a>
+</nav>
+<div class="flex items-center space-x-6">
+<button class="text-primary scale-95 duration-200 transition-transform hover:scale-100">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="text-primary scale-95 duration-200 transition-transform hover:scale-100 relative">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="absolute -top-1 -right-1 bg-secondary text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">2</span>
+</button>
+<button class="text-primary scale-95 duration-200 transition-transform hover:scale-100">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center pt-24 overflow-hidden">
+<!-- Background Image with Reference -->
+<div class="absolute inset-0 z-0">
+<img alt="Sattvi Hero" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLswGBTJaMepf-iYn4zR08_G4ILLeGIYQFIldIr7N-ZoGGsmKsx9tQXgVEwoLlef7IlUOIvNs4HSNxDFnnGVjQ8gWx_XLn-lLXGMuEx9xHnJaDFPg0d2f3oB-EinDRE-8cksw5pcgQ05C9GQqhaZLVC4fiU-6kI0vZ8O4Ys8X6Co3I9ZBdY3S4-0tsVjpLfP6dPDZ1O8JuaFaTjsVNPlCBDPDLTIHAwPFwoiyAU22q0mTP2fl4TJiOvL6PY"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="container-max mx-auto px-margin-desktop relative z-10 w-full">
+<div class="max-w-2xl">
+<span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em] block mb-6">Purity Redefined</span>
+<h1 class="font-display-lg text-display-lg text-on-background mb-8 leading-[1.05]">Saflığın Kaynağına<br/>Dönüş.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-lg">
+            Sattvik yaşamın bilgeliğiyle, toprağın en saf halini sofranıza taşıyoruz. Kimyasal içermeyen, bilinçli üretilmiş gerçek gıdalarla kendinizi yeniden keşfedin.
+          </p>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="pill-button bg-primary text-on-primary px-10 py-5 font-label-md text-label-md hover:bg-primary-container transition-all shadow-lg shadow-primary/10">
+              HEMEN KEŞFET
+            </button>
+<button class="pill-button border border-secondary text-secondary px-10 py-5 font-label-md text-label-md hover:bg-secondary/5 transition-all">
+              HİKAYEMİZ
+            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Curated Collections -->
+<section class="py-section-gap max-w-container-max mx-auto px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-xl">
+<h2 class="font-headline-md text-headline-md text-on-background mb-4">Özenle Seçilmiş Koleksiyonlar</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Her biri kendi mevsiminde, etik kaynaklardan ve geleneksel yöntemlerle hazırlandı.</p>
+</div>
+<a class="font-label-md text-label-md text-primary border-b border-primary pb-1 group flex items-center gap-2" href="#">
+          Tümünü Gör 
+          <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Collection Card 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[4/5] rounded-xl overflow-hidden mb-6 ambient-shadow hover-ambient-shadow transition-all duration-500">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close up of various organic grains like quinoa and brown rice in glass jars sitting on a rustic wooden shelf. The lighting is soft and natural, coming from a side window, highlighting the textures of the grains. The color palette is earthy and warm, reflecting a serene, high-end organic brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl3TPAYJMkvYkqCybzpgmStqCq-OpKfiSjeQYM7-Pk51gof7aYXzoOtuEzApkMOJ5MUZLhq8IG7P2_VhLSLudaTdENvocahBamKj1wA1Vj7EbfKbFQ8lpguV4tNITrdwL-XAhEsUcZ64KRFEu3-D8iJmfn7M2HDeIVlbzDnHeVAl9zngoc9rq_g2izog3cQLXqls8S0bR4qgKpcLIiSDhA-Dm3Qcy_jpco25ArNt0FbEvkRgOiIjyukpGaPPPrNWbbgbdLZ0Xn3GdU"/>
+<div class="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors"></div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-background">Tahıl</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Genetiği korunmuş, besleyici antik tahıllar.</p>
+</div>
+<!-- Collection Card 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[4/5] rounded-xl overflow-hidden mb-6 ambient-shadow hover-ambient-shadow transition-all duration-500">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="An artistic arrangement of whole spices including cinnamon sticks, star anise, and peppercorns on a textured stone surface. Soft daylight illuminates the composition, creating subtle shadows and emphasizing the organic forms. The style is minimalist and editorial, with a sophisticated color palette of warm browns and muted greys." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuOh6nUbyYB-o9ZfKjVijFYETK3L9CLgcQ_MaUeeAw16G2IKlCfhM9-ogkQA5b3OFvBctAMMq--ffyHRGLhrcuad1gf6JtdkN_Ajg9D8_cml-IGFmmUiiG1KAkNLNHQ7BBs1PsHDqm1qkvYDUvGmuBnFgW84p1mhgRokm9y-WdiGMCXE7JblcKlIlLIdWGJO35a0NXEwJeO1ErmHyMN0LLwHJJ6pMGa8KsH_FT_-o_g7a_sp5cOnLQ7Xas2ApREDlGmPaVC3fEq7zU"/>
+<div class="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors"></div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-background">Baharat</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Aromatik, taze ve şifa dolu baharat seçkisi.</p>
+</div>
+<!-- Collection Card 3 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[4/5] rounded-xl overflow-hidden mb-6 ambient-shadow hover-ambient-shadow transition-all duration-500">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Extra virgin olive oil being poured into a small ceramic bowl next to a branch of fresh green olives. The scene is bright and airy with high-key lighting that emphasizes the golden clarity of the oil. The aesthetic is clean, modern, and high-end, focusing on natural purity and minimalist luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmIffD-_yP4M3y0P4DjB-XzBFpHm5z2r5RtmjjwXJgZ9dc39lfVvqtLGAzd7HS8gYlFJTJW-x0Evyg_FusbURtewlxl1YIj8SW6oY2hn9tqHRDLBg1XTGO_u_axV4yf4IFL-Uyd4lYT_Q5c5dW57ZjqzVnbgIRN3l_vntW02EPYando169PKJDRmQKtY7qptV2yGO_OqJyPFzbWMFhT5DSAy6YZeCrs7p-UxYVlGRPksK_9QhY_-e0FHnC6AuK3pQ8t9H7q0bDvmfW"/>
+<div class="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors"></div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-background">Sağlıklı Yağlar</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Soğuk sıkım ve saf yöntemlerle elde edilen özler.</p>
+</div>
+</div>
+</section>
+<!-- Featured Product: Altın Ghee Yağı -->
+<section class="bg-surface-container py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="order-2 lg:order-1">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-[0.2em] block mb-6">Ayın Ürünü</span>
+<h2 class="font-display-lg text-display-lg text-on-background mb-8 leading-tight">Altın Ghee Yağı</h2>
+<div class="space-y-6 mb-12">
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                Geleneksel Ayurveda yöntemleriyle, otla beslenen ineklerin sütünden elde edilen saf sade yağ. 48 saatlik düşük ısıda pişirme süreciyle kazein ve laktozdan arındırılmıştır.
+              </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="eco">eco</span>
+<span class="font-body-md text-body-md">100% Organik ve Katkısız</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="workspace_premium">workspace_premium</span>
+<span class="font-body-md text-body-md">Yüksek Yanma Derecesi (250°C)</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="spa">spa</span>
+<span class="font-body-md text-body-md">Bütirik Asit Bakımından Zengin</span>
+</li>
+</ul>
+</div>
+<div class="flex items-center gap-8">
+<button class="pill-button bg-primary text-on-primary px-10 py-5 font-label-md text-label-md hover:bg-primary-container transition-all">
+                SEPETE EKLE — 420 TL
+              </button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full border border-outline-variant text-on-surface-variant hover:text-secondary hover:border-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+</div>
+<div class="order-1 lg:order-2 relative">
+<div class="aspect-square bg-white rounded-3xl overflow-hidden ambient-shadow flex items-center justify-center p-12">
+<img class="max-w-full h-auto object-contain rounded-lg" data-alt="A premium glass jar of golden-yellow ghee oil placed on a minimalist white stone pedestal. The lighting is sophisticated, with soft rim lighting that makes the golden liquid glow. The background is a soft sage green, creating a calm and luxurious atmosphere that reflects the pure, organic essence of the product." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL89P8yLMFGQBiKcgR4QI3p96Nh1gzRWsHvW4SPLBYmJ5JMahnNxAFtq1OvImU6QJVC4xyUuRbFU-VstP_4uUWnN1i_hsm7DGkYQIlOxfPOz4S5mbGE_1keTiL3hPfTsz59dNTPoOW9O9auWsGcG4Yl1M-J86uUtN8fzuxotrAXnnMmtKanCahu0xNiFKqQOUyls29LQFwgKSW83ScSJwo3uu4aXT7KxO5LNTYuh3vA7QYTl_SWsGhghx5uGIOV3PLooFbW3e6NRP3"/>
+</div>
+<!-- Organic Chip -->
+<div class="absolute -top-4 -right-4 bg-primary-fixed text-on-primary-fixed-variant px-6 py-3 rounded-full font-label-md text-label-md shadow-lg">
+              ORGANİK SERTİFİKALI
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Content Narrative / Community Section -->
+<section class="py-section-gap">
+<div class="max-w-container-max mx-auto px-margin-desktop text-center">
+<div class="max-w-3xl mx-auto">
+<h2 class="font-display-lg text-display-lg text-on-background mb-8">Bilinçli Bir Topluluk</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+            Sattvi, sadece bir market değil; doğayla uyum içinde yaşamanın yolculuğudur. Tariflerimiz, atölyelerimiz ve uzman görüşlerimizle bu yolculukta yanınızdayız.
+          </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter text-left">
+<div class="p-8 bg-surface-container-low rounded-2xl hover:bg-surface-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-primary mb-6" data-icon="menu_book">menu_book</span>
+<h4 class="font-headline-sm text-headline-sm mb-4">Sattvik Tarifler</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Mevsim sebzeleri ve şifalı yağlarla hazırlanan dengeleyici yemek tarifleri.</p>
+<span class="font-label-md text-label-md text-primary group-hover:underline">Okumaya Başla</span>
+</div>
+<div class="p-8 bg-surface-container-low rounded-2xl hover:bg-surface-container transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-4xl text-primary mb-6" data-icon="groups">groups</span>
+<h4 class="font-headline-sm text-headline-sm mb-4">Topluluk Atölyeleri</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Farkındalık, meditasyon ve doğal yaşam üzerine online ve yüz yüze etkinlikler.</p>
+<span class="font-label-md text-label-md text-primary group-hover:underline">Etkinlikleri Gör</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-highest w-full mt-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-desktop py-section-gap">
+<div class="col-span-1 lg:col-span-1">
+<div class="font-display-lg text-display-lg text-primary mb-8">Sattvi</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+          Doğanın bilgeliğini modern yaşamın ritmine entegre ediyoruz. Saf, temiz ve bilinçli gıda.
+        </p>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary mb-6 uppercase tracking-wider">Hızlı Erişim</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Resources</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Recipes</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Wholesale</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary mb-6 uppercase tracking-wider">Kurumsal</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Our Story</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Sourcing</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary mb-6 uppercase tracking-wider">Yasal</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Terms of Service</a></li>
+<li><a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">Shipping</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop py-8 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="font-body-md text-body-md text-on-surface-variant opacity-80">© 2024 Sattvi. Purely Organic, Consciously Crafted.</span>
+<div class="flex space-x-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="brand_awareness">brand_awareness</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="public">public</span>
+</a>
+</div>
+</div>
+</footer>
+<script>
+    // Micro-interactions and scroll effects
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('shadow-sm');
+        header.classList.remove('h-24');
+        header.classList.add('h-20');
+      } else {
+        header.classList.remove('shadow-sm');
+        header.classList.add('h-24');
+        header.classList.remove('h-20');
+      }
+    });
+
+    // Reveal animation on scroll
+    const observerOptions = {
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-10');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+      section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+      observer.observe(section);
+    });
+  </script>
+</body></html>
